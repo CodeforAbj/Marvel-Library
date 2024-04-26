@@ -1,0 +1,13 @@
+body {
+  background-image: url("../assests/bg.jpg");
+  background-size: 100dvw 100dvh;
+}
+nav {
+  background-color: black;
+}
+
+#searchQueryInp {
+  border-radius: 8px; /* Rounded corners */
+  border-width: 2px; /* Increased border thickness */
+  height: 50px;
+}
