@@ -1,12 +1,12 @@
 // ====================================================== //
 // ==================== Declarations ==================== //
 // ====================================================== //
-
+const searchQueryInp = document.getElementById("searchQueryInp");
 const heroDisplayContainer = document.getElementById("heroDisplayContainer");
 const publickey = "2555e84c834b5289fc4fcd3c63782251";
 const privatekey = "ce1b5c8e81bf904cc40b9d5f1332acbe886fa070"; // Because I have to host it on github and idk CI/CD yet
 const baseURL = "https://gateway.marvel.com/v1/public/characters?";
-
+let debounceID;
 // ====================================================== //
 // ================== fn to fetch data ================== //
 // ====================================================== //
@@ -38,6 +38,14 @@ function renderResult(data) {
   // Clear the existing content
   while (heroDisplayContainer.firstChild) {
     heroDisplayContainer.removeChild(heroDisplayContainer.firstChild);
+  }
+  // Case of No Result found
+  if (data.length === 0) {
+    const noResult = document.createElement("h2");
+    noResult.className = "font-weight-bold text-white";
+    noResult.textContent = "No result found";
+    heroDisplayContainer.appendChild(noResult);
+    return;
   }
   // Fetching local storage to check for favorites
   const storedFavArray = localStorage.getItem("favArray");
@@ -125,8 +133,18 @@ function toggleFav(hero, button) {
 // ====================================================== //
 // ============== Search Bar functionality ============== //
 // ====================================================== //
-
+searchQueryInp.addEventListener("input", handleSearch);
+function handleSearch() {
+  clearTimeout(debounceID);
+  debounceID = setTimeout(() => {
+    console.log(searchQueryInp.value);
+    getData(searchQueryInp.value);
+  }, 1000);
+}
 // ====================================================== //
 // ==================== On load calls ==================== //
 // ====================================================== //
-window.onload(getData(null));
+window.onload = () => {
+  searchQueryInp.value = "";
+  getData(null);
+};
