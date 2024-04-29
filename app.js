@@ -79,7 +79,7 @@ function renderResult(data) {
     title.textContent = hero.name;
 
     const button = document.createElement("button");
-    button.className = "btn btn-outline-dark";
+    button.className = "btn btn-outline-dark mb-2";
     button.textContent = isFavourite
       ? "Remove from Favourites"
       : "Add to Favourites";
@@ -90,8 +90,24 @@ function renderResult(data) {
       toggleFav(hero, button);
     });
 
+    const aboutBtn = document.createElement("button");
+    aboutBtn.className = "btn btn-outline-dark";
+    aboutBtn.textContent = "About";
+    aboutBtn.addEventListener("click", () => {
+      //store the data of that hero in session storage to be loaded by about page
+      herodetails = {
+        id: hero.id,
+        name: hero.name,
+        description: hero.description,
+        thumbnail: hero.thumbnail,
+      };
+      sessionStorage.setItem("about", herodetails);
+      window.location.assign("./about.html");
+    });
+
     cardBody.appendChild(title);
     cardBody.appendChild(button);
+    cardBody.appendChild(aboutBtn);
 
     card.appendChild(img);
     card.appendChild(cardBody);
