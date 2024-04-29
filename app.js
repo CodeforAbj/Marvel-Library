@@ -95,13 +95,17 @@ function renderResult(data) {
     aboutBtn.textContent = "About";
     aboutBtn.addEventListener("click", () => {
       //store the data of that hero in session storage to be loaded by about page
-      herodetails = {
+      let herodetails = {
         id: hero.id,
         name: hero.name,
         description: hero.description,
         thumbnail: hero.thumbnail,
+        comics: hero.comics.available,
+        series: hero.series.available,
+        stories: hero.stories.available,
       };
-      sessionStorage.setItem("about", herodetails);
+      const dataToStore = JSON.stringify(herodetails);
+      sessionStorage.setItem("about", dataToStore);
       window.location.assign("./about.html");
     });
 

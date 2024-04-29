@@ -11,3 +11,7 @@ nav {
   border-width: 2px; /* Increased border thickness */
   height: 50px;
 }
+
+.text-justify {
+  text-align: justify;
+}
