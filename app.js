@@ -156,6 +156,7 @@ function toggleFav(hero, button) {
 searchQueryInp.addEventListener("input", handleSearch);
 function handleSearch() {
   clearTimeout(debounceID);
+  // debouncing to reduce no of requests to backend
   debounceID = setTimeout(() => {
     console.log(searchQueryInp.value);
     getData(searchQueryInp.value);
