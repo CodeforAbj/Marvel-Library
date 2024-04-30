@@ -4,7 +4,7 @@
 const searchQueryInp = document.getElementById("searchQueryInp");
 const heroDisplayContainer = document.getElementById("heroDisplayContainer");
 const publickey = "2555e84c834b5289fc4fcd3c63782251";
-const privatekey = "ce1b5c8e81bf904cc40b9d5f1332acbe886fa070"; // Because I have to host it on github and idk CI/CD yet
+const privatekey = process.env.MARVELPRIVATEKEY; // Because I have to host it on github and idk CI/CD yet
 const baseURL = "https://gateway.marvel.com/v1/public/characters?";
 let debounceID;
 // ====================================================== //
