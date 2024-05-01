@@ -1,7 +1,7 @@
 
 # Superhero Library
 
-Superhero Library is a web application that allows users to search and explore information about their favorite superheroes from the Marvel universe. It leverages the Marvel API to fetch and display a variety of superhero data, including their name, photo, bio, comics, events, series, stories, and option to have persistent favorites.
+Superhero Library is a  simple vanilla HTML, Bootstrap CSS, and JavaScript project that allows users to search and explore information about their favorite superheroes from the Marvel universe. It leverages the Marvel API to fetch and display a variety of superhero data, including their name, photo, bio, comics, events, series, stories, and option to have persistent favorites.
 ## Features
 #### Home Page
 
@@ -19,7 +19,7 @@ Superhero Library is a web application that allows users to search and explore i
 - Remove from Favorites: Each superhero in the favorites list includes a remove button. Clicking on this button removes the superhero from the list, allowing users to customize their selection effortlessly.
 ## Demo
 
-[Youtube Link](https://youtu.be/lOU63NPWVGQ)
+[Youtube Link](https://youtu.be/MgebGiw1Yz4)
 
 
 ## Screenshots
